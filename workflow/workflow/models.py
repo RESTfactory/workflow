@@ -1,6 +1,9 @@
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save
+from comments.models import (
+    Comment,
+)
 
 class ContactInfo(models.Model):
     name = models.CharField(max_length=100)
@@ -57,6 +60,7 @@ class Task(AbstractWorkflow):
     info = models.TextField()
     # paso actual de ejecucion de tarea
     current_step = models.ForeignKey(Step, blank=True, null=True)
+    comments = models.ManyToManyField(Comment, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
