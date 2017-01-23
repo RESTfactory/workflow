@@ -14,13 +14,16 @@ Workflow is a REST API intended to be used as a general purpose workflow system.
 4. get into main django folder
 	> cd workflow
 
-5. Migrate
+5. Rename workflow/settings_secret.py.dist to workflow/settings_secret.py
+  > mv workflow/settings_secret.py.dist workflow/settings_secret.py
+
+6. Migrate
 	> python manage.py makemigrations && python manage.py migrate
 
-6. Create a superuser
+7. Create a superuser
 	> python manage.py createsuperuser
 
-7. run and visit the app in http://localhost:8000/admin with your username and password
+8. run and visit the app in http://localhost:8000/admin with your username and password
 	> python manage.py runserver
 
 ## Models

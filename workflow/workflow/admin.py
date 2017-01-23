@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import (
     ContactInfo,
     Status,
-    Action,
     Step,
     Workflow,
     Task,
@@ -24,7 +23,6 @@ class TaskHistoryAdmin(admin.ModelAdmin):
 
 admin.site.register(ContactInfo)
 admin.site.register(Status)
-admin.site.register(Action)
 admin.site.register(Step)
 admin.site.register(Workflow)
 admin.site.register(Task, TaskAdmin)
