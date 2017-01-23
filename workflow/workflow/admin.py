@@ -6,6 +6,8 @@ from .models import (
     Step,
     Workflow,
     Task,
+    TaskInstance,
+    TaskHistory,
 )
 from .forms import (
     TaskForm,
@@ -14,9 +16,17 @@ from .forms import (
 class TaskAdmin(admin.ModelAdmin):
     form = TaskForm
 
+class TaskInstanceAdmin(admin.ModelAdmin):
+    readonly_fields = ('name','data')
+
+class TaskHistoryAdmin(admin.ModelAdmin):
+    readonly_fields = ('name', 'task', 'task_instances')
+
 admin.site.register(ContactInfo)
 admin.site.register(Status)
 admin.site.register(Action)
 admin.site.register(Step)
 admin.site.register(Workflow)
 admin.site.register(Task, TaskAdmin)
+admin.site.register(TaskInstance, TaskInstanceAdmin)
+admin.site.register(TaskHistory, TaskHistoryAdmin)
