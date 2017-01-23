@@ -23,6 +23,13 @@ class Action(models.Model):
     def __str__(self):
         return self.name
 
+class Step(models.Model):
+    name = models.CharField(max_length=100)
+    status = models.ForeignKey(Status)
+
+    def __str__(self):
+        return self.name
+
 # class History(models.Model):
 #     actions = Action.
 #     # name = models.CharField(max_length=30)
@@ -37,6 +44,7 @@ class AbstractWorkflow(models.Model):
         abstract = True
 
 class Workflow(AbstractWorkflow):
+    allowed_steps = models.ManyToManyField(Step, blank=True)
 
     def __str__(self):
         return self.name
@@ -47,8 +55,8 @@ class Task(AbstractWorkflow):
     target_contact_info = models.ForeignKey(ContactInfo, blank=True, null=True)
     # el feedback a entregar
     info = models.TextField()
-    # estado actual
-    status = models.ForeignKey(Status)
+    # paso actual de ejecucion de tarea
+    current_step = models.ForeignKey(Step, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
