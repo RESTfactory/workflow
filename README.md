@@ -4,16 +4,22 @@ Workflow is a REST API intended to be used as a general purpose workflow system.
 ## Installation
 1. Clone this repository
 	> git clone https://github.com/RESTfactory/workflow.git
+
 2. get into the project folder
 	> cd workflow
+
 3. Install the required packages
 	> pip install -r requirements.txt
+
 4. get into main django folder
 	> cd workflow
+
 5. Migrate
 	> python manage.py makemigrations && python manage.py migrate
+
 6. Create a superuser
 	> python manage.py createsuperuser
+
 7. run and visit the app in http://localhost:8000/admin with your username and password
 	> python manage.py runserver
 
